@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Im
 import MyNav from './Componenti/MyNav'; // Importa la Navbar
 import AllTheBooks from './Componenti/AllTheBooks'; // Componente AllTheBooks
 import CommentArea from './Componenti/CommentArea'; // Importa CommentArea
+import BookDetails from './Componenti/BookDetails'; // Importa BookDetails
 import NotFound from './Componenti/NotFound'; // Importa il componente NotFound
 
 const App = () => {
@@ -39,6 +40,8 @@ const App = () => {
               </div>
             }
           />
+          {/* Rotta per BookDetails */}
+          <Route path="/book/:asin" element={<BookDetails />} />
           {/* Rotta per gestire tutte le altre rotte */}
           <Route path="*" element={<NotFound />} />
         </Routes>

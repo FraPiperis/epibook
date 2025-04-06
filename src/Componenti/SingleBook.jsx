@@ -1,7 +1,10 @@
 // SingleBook.jsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SingleBook = ({ book, setSelectedBook, isSelected }) => {
+  const navigate = useNavigate(); // Hook per navigare tra le rotte
+
   const handleBookClick = () => {
     setSelectedBook(book.asin); // Imposta il libro selezionato
   };
@@ -25,6 +28,13 @@ const SingleBook = ({ book, setSelectedBook, isSelected }) => {
         <h5 className="card-title">{book.title}</h5>
         <p className="card-text">Price: ${book.price}</p>
         <p className="card-text">Category: {book.category}</p>
+        {/* Pulsante per navigare a BookDetails */}
+        <button
+          className="btn btn-primary mt-2"
+          onClick={() => navigate(`/book/${book.asin}`)}
+        >
+          Dettagli
+        </button>
       </div>
     </div>
   );

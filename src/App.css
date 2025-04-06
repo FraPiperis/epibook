@@ -1,10 +1,8 @@
 /* App.css o index.css */
-
-
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 100%;
+  margin: 0;
+  padding:0;
   text-align: center;
 }
 
@@ -44,6 +42,15 @@
   color: #888;
 }
 
+/* Assicura che la navbar occupi tutta la larghezza */
+.navbar {
+  width: 100%; /* Larghezza massima */
+  margin: 0;
+  padding: 0;
+  max-width: 100%; /* Evita restrizioni di larghezza */
+  box-sizing: border-box; /* Include padding e bordi nella larghezza */
+}
+
 /* App.css */
 .nav-link {
   transition: all 0.3s ease;
@@ -52,4 +59,14 @@
   color: #000000; /* Colore giallo per il hover */
   text-decoration: underline;
 }
-/* App.css *
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
