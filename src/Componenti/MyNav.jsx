@@ -1,33 +1,29 @@
 // MyNav.jsx
 import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { FaHome, FaInfoCircle, FaSearch } from 'react-icons/fa'; // Icone per la navbar
+import { Navbar, Nav, Container, Form, FormControl } from 'react-bootstrap';
 
-const MyNav = () => {
+const MyNav = ({ searchTerm, setSearchTerm }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
-          <img
-            src="" // Sostituisci con il tuo logo
-            alt="Logo"
-            className="d-inline-block align-top"
-          />{' '}
-          MyApp
-        </Navbar.Brand>
+        <Navbar.Brand href="#home">MyApp</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#home">
-              <FaHome /> Home
-            </Nav.Link>
-            <Nav.Link href="#about">
-              <FaInfoCircle /> About
-            </Nav.Link>
-            <Nav.Link href="#browse">
-              <FaSearch /> Browse
-            </Nav.Link>
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#about">About</Nav.Link>
+            <Nav.Link href="#browse">Browse</Nav.Link>
           </Nav>
+          {/* Campo di ricerca */}
+          <Form className="d-flex ms-3">
+            <FormControl
+              type="search"
+              placeholder="Search books..."
+              className="me-2"
+              value={searchTerm} // Legge il valore dallo stato di App
+              onChange={(e) => setSearchTerm(e.target.value)} // Aggiorna lo stato di App
+            />
+          </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
