@@ -1,23 +1,35 @@
+// MyNav.jsx
 import React from 'react';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { FaHome, FaInfoCircle, FaSearch } from 'react-icons/fa'; // Icone per la navbar
 
-const MyNav = ({ searchQuery, onSearchChange }) => {
+const MyNav = () => {
   return (
-    <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#">Book App</Navbar.Brand>
-      <Nav className="mr-auto">
-        <Form inline>
-          {/* Input di ricerca, il valore è gestito da App tramite searchQuery */}
-          <FormControl
-            type="text"
-            placeholder="Cerca un libro"
-            className="mr-sm-2"
-            value={searchQuery}  // Valore preso da App
-            onChange={onSearchChange}  // Funzione per aggiornare lo stato di App
-          />
-          <Button variant="outline-info">Cerca</Button>
-        </Form>
-      </Nav>
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">
+          <img
+            src="" // Sostituisci con il tuo logo
+            alt="Logo"
+            className="d-inline-block align-top"
+          />{' '}
+          MyApp
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="#home">
+              <FaHome /> Home
+            </Nav.Link>
+            <Nav.Link href="#about">
+              <FaInfoCircle /> About
+            </Nav.Link>
+            <Nav.Link href="#browse">
+              <FaSearch /> Browse
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 };

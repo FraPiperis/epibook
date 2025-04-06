@@ -1,3 +1,6 @@
+/* App.css o index.css */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -34,9 +37,19 @@
 }
 
 .card {
-  padding: 2em;
+  padding: 1em;
 }
 
 .read-the-docs {
   color: #888;
 }
+
+/* App.css */
+.nav-link {
+  transition: all 0.3s ease;
+}
+.nav-link:hover {
+  color: #000000; /* Colore giallo per il hover */
+  text-decoration: underline;
+}
+/* App.css *
