@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import CommentList from './CommentList'; // Importa il componente CommentList
-import AddComment from './AddComment'; // Importa il componente AddComment
+import CommentList from './CommentList';
+import AddComment from './AddComment';
 import { Spinner, Alert } from 'react-bootstrap';
 
 const AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2YyNGNjNzI2YTJlMjAwMTUwZmQxOTkiLCJpYXQiOjE3NDM5MzI2MTUsImV4cCI6MTc0NTE0MjIxNX0.hI9rjQRtyTbOIyKU63Rhk4iVVwD-RMI7ed4h43SLMzo';
 
 const CommentArea = ({ asin }) => {
-  const [comments, setComments] = useState([]); // Stato per le recensioni
-  const [loading, setLoading] = useState(false); // Stato per il caricamento
-  const [error, setError] = useState(null); // Stato per eventuali errori
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!asin) return; // Evita di effettuare la fetch se asin non è disponibile
+    if (!asin) return;
 
     const fetchComments = async () => {
       setLoading(true);
@@ -39,20 +39,14 @@ const CommentArea = ({ asin }) => {
     fetchComments();
   }, [asin]);
 
-  if (!asin) {
-    return <p className="text-center">Seleziona un libro per vedere i commenti</p>;
-  }
-
   return (
     <div className="mt-4">
       <h5>Comments</h5>
       {error && <Alert variant="danger">{error}</Alert>}
       {loading ? (
-        <div className="text-center my-3">
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </div>
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
       ) : (
         <>
           <CommentList comments={comments} setComments={setComments} />

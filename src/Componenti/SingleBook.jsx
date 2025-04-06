@@ -1,7 +1,7 @@
 // SingleBook.jsx
 import React from 'react';
 
-const SingleBook = ({ book, setSelectedBook }) => {
+const SingleBook = ({ book, setSelectedBook, isSelected }) => {
   const handleBookClick = () => {
     setSelectedBook(book.asin); // Imposta il libro selezionato
   };
@@ -10,7 +10,7 @@ const SingleBook = ({ book, setSelectedBook }) => {
     <div
       className="card mb-4"
       style={{
-        border: '1px solid #ddd', // Bordo standard
+        border: isSelected ? '2px solid red' : '1px solid #ddd', // Bordo rosso se selezionato
         cursor: 'pointer',
       }}
       onClick={handleBookClick} // Gestore del click

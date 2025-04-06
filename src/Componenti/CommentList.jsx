@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import SingleComment from './SingleComment'; // Importa il componente SingleComment
+import SingleComment from './SingleComment';
 
 const CommentList = ({ comments, setComments }) => {
   return (
