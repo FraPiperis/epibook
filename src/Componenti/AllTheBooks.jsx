@@ -1,27 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import books from '../assets/Books/horror.json'; // Importa i dati dei libri
 import SingleBook from './SingleBook'; // Importa il componente SingleBook
 
-const AllTheBooks = ({ searchTerm, setSelectedBook, selectedBook }) => {
+const AllTheBooks = ({ searchTerm, setSelectedBook }) => {
+  const [visibleBooks, setVisibleBooks] = useState(9); // Stato per il numero di libri visibili
+
   // Filtra i libri in base al titolo usando il valore di searchTerm
   const filteredBooks = books.filter((book) =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Funzione per caricare altri 10 libri
+  const loadMoreBooks = () => {
+    setVisibleBooks((prevVisibleBooks) => prevVisibleBooks + 9);
+  };
+
   return (
     <div>
       <h2 className="mb-4">All The Books</h2>
       <div className="row">
-        {filteredBooks.map((book) => (
+        {filteredBooks.slice(0, visibleBooks).map((book) => (
           <div key={book.asin} className="col-md-4">
-            <SingleBook
-              book={book}
-              setSelectedBook={setSelectedBook}
-              isSelected={selectedBook === book.asin} // Passa se il libro è selezionato
-            />
+            <SingleBook book={book} setSelectedBook={setSelectedBook} />
           </div>
         ))}
       </div>
+      {visibleBooks < filteredBooks.length && (
+        <div className="text-center mt-4">
+          <button
+            className="btn btn-dark my-4"
+            onClick={loadMoreBooks}
+          >
+            Vedi di più
+          </button>
+        </div>
+      )}
     </div>
   );
 };
