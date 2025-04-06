@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Card, Container, Row, Col } from 'react-bootstrap'
 import allBooks from '../books/allBooks'
 import { ThemeContext } from '../../modules/context'
-import CommentAreaComponent from './Componenti/CommentArea.jsx'
+import CommentAreaComponent from './CommentAreaComponent'
 
 export default function BookDetailsComponent() {
   const { asin } = useParams()

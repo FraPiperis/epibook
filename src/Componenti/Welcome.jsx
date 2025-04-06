@@ -1,23 +1,14 @@
-import React from 'react'
-import { useContext } from 'react';
-import Alert from 'react-bootstrap/Alert';
-import { ThemeContext } from '../../modules/context'
+import { Alert, Container } from 'react-bootstrap';
 
-export default function WelcomeComponent() {
-
-  const [theme, setTheme] = useContext(ThemeContext)
-
+const Welcome = () => {
   return (
-    <Alert variant={theme} className="text-center mt-1">
-      <Alert.Heading>Hey, nice to see you in EpiBooks!</Alert.Heading>
-      <p>
-         Welcome to the world's #1 bookstore. Here you can find all the books you want,
-         of any genre you want, from fantasy, to horror, from thriller to romance. You are in the right place.
-      </p>
-      <hr />
-      <p className="mb-0">
-        Whatever you are looking for, you will find it with us!
-      </p>
-    </Alert>
-  )
-}
+    <Container className="mt-4">
+      <Alert variant="info">
+        Welcome to MyApp! We are glad to have you here.
+      </Alert>
+      <h1>Welcome to MyApp</h1>
+    </Container>
+  );
+};
+
+export default Welcome;

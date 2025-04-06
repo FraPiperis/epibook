@@ -1,40 +1,58 @@
-import React, { useState, useContext } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import horror from 'src/assets/Books/horror.json'
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { ThemeContext } from '../../modules/context';
-import SingleBook from './Componenti/SingleBook.jsx'; 
+import React, { useState, useEffect } from 'react';
+import SingleBook from './SingleBook'; // Assicurati di importare SingleBook
+import { Container, Row, Col, Form } from 'react-bootstrap';
 
-export default function AllTheBooks({ books, selectedAsin, setSelectedAsin }) {
-  const [theme, setTheme] = useContext(ThemeContext)
-  const [visibleBooks, setvisibleBooks] = useState(8);
-  
-  const loadMoreBooks = () => {
-  setvisibleBooks(prevVisibleBooks => prevVisibleBooks + 8 )}
+const AllTheBooks = () => {
+  const [books, setBooks] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(''); // Stato per gestire il valore dell'input
 
+  // Caricamento dei libri dal file JSON
+  useEffect(() => {
+    fetch('./horror.json') // Assicurati che il percorso sia corretto
+      .then(response => response.json())
+      .then(data => setBooks(data))
+      .catch(error => console.error('Error loading books:', error));
+  }, []);
+
+  // Funzione per gestire il cambiamento dell'input
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value); // Aggiorna lo stato con il valore dell'input
+  };
+
+  // Filtra i libri in base al titolo
+  const filteredBooks = books.filter(book => 
+    book.title.toLowerCase().includes(searchQuery.toLowerCase()) // Ignora maiuscole/minuscole
+  );
 
   return (
-    <>
-    <Container className="mt-4">
-        <Row className="mt-5 mb-4">
-          <Col>
-            <h2 className={`text-${theme === 'dark' ? 'dark' : 'light'} fw-bold text-center`}>Horror Section</h2>
+    <Container>
+      {/* Campo di input per la ricerca */}
+      <Form.Group controlId="search">
+        <Form.Label>Cerca un libro</Form.Label>
+        <Form.Control 
+          type="text" 
+          placeholder="Cerca per titolo" 
+          value={searchQuery} // Il valore dell'input è controllato
+          onChange={handleSearchChange} // Gestisce il cambiamento dell'input
+        />
+      </Form.Group>
+
+      <Row>
+        {filteredBooks.map((book, index) => (
+          <Col key={index} md={4} className="mb-4">
+            {/* Per ogni libro, rendi il componente SingleBook */}
+            <SingleBook book={book} />
           </Col>
-        </Row>
-        <Row>
-          {books.slice(0, visibleBooks).map((book) => (
-            <SingleBook key={book.asin} book={book} selectedAsin={selectedAsin} setSelectedAsin={setSelectedAsin} />
-          ))}
-        </Row>
-        {visibleBooks < horrorbooks.length && (
-          <Row className="mt-4">
-            <Col className="text-center">
-              <Button variant={theme} onClick={loadMoreBooks}>
-                <span><i className="bi bi-download me-2"></i></span>Set More</Button>
-            </Col>
-          </Row>
-        )}
-      </Container>
-    </>
-  )
-}
+        ))}
+      </Row>
+    </Container>
+  );
+
+  
+};
+
+export default AllTheBooks;
+
+
+ 
+

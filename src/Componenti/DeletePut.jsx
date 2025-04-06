@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Button, Spinner } from 'react-bootstrap'
+import CommentAreaComponent from './CommentArea.jsx';
 
 const AUTH_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2YyNGNjNzI2YTJlMjAwMTUwZmQxOTkiLCJpYXQiOjE3NDM5MzI2MTUsImV4cCI6MTc0NTE0MjIxNX0.hI9rjQRtyTbOIyKU63Rhk4iVVwD-RMI7ed4h43SLMzo'
 

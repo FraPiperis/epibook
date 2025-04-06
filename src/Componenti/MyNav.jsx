@@ -1,49 +1,25 @@
-import React from 'react'
-import { useContext } from 'react';
-import { Navbar, Container, Nav, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { ThemeContext } from '../../modules/context';
+import React from 'react';
+import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 
-export default function NavbarComponents({ search, onSearchChange }) {
-
-  const [theme, setTheme] = useContext(ThemeContext)
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
-
-
+const MyNav = ({ searchQuery, onSearchChange }) => {
   return (
-    <Navbar  expand="lg" bg={theme} data-bs-theme={theme}>
-      <Container fluid>
-        <Navbar.Brand href="#">EpiBooks</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Link to="/" className='nav-link'>Home</Link>
-            <Nav.Link href="#">About</Nav.Link>
-            <Nav.Link href="#">Browser</Nav.Link>
-          </Nav>
-          <Button variant="secondary" className='me-2' onClick={() => {
-            if (theme === 'light') {
-              setTheme('dark')
-            } else {
-              setTheme('light')
-          }}
-          }>
-            <span><i className="bi bi-sun me-2"></i></span>Theme</Button>
-          <Form className="d-flex" onSubmit={handleSubmit}>
-            <Form.Control
-              type="text"
-              placeholder="Search your book..."
-              className="me-2"
-              value={search}
-              aria-label="Search"
-              onChange={(e) => onSearchChange(e.target.value)}
-            />
-          </Form>
-        </Navbar.Collapse>
-      </Container>
+    <Navbar bg="dark" variant="dark">
+      <Navbar.Brand href="#">Book App</Navbar.Brand>
+      <Nav className="mr-auto">
+        <Form inline>
+          {/* Input di ricerca, il valore è gestito da App tramite searchQuery */}
+          <FormControl
+            type="text"
+            placeholder="Cerca un libro"
+            className="mr-sm-2"
+            value={searchQuery}  // Valore preso da App
+            onChange={onSearchChange}  // Funzione per aggiornare lo stato di App
+          />
+          <Button variant="outline-info">Cerca</Button>
+        </Form>
+      </Nav>
     </Navbar>
-  )
-}
+  );
+};
+
+export default MyNav;

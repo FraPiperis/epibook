@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import AllTheBooksComponents from './AllTheBooksComponents'
-import CommentAreaComponent from './Componenti/CommentArea.jsx'
+import AllTheBooksComponents from './AllTheBooks.jsx'
+import CommentAreaComponent from './CommentArea.jsx'
 
 export default function MainComponent({ books, selectedAsin, setSelectedAsin }) {
 
