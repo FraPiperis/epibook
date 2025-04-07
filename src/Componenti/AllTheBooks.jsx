@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import books from '../assets/Books/horror.json'; // Importa i dati dei libri
-import SingleBook from './SingleBook'; // Importa il componente SingleBook
+import books from '../assets/Books/horror.json'; 
+import SingleBook from './SingleBook'; 
 
 const AllTheBooks = ({ searchTerm, setSelectedBook }) => {
-  const [visibleBooks, setVisibleBooks] = useState(9); // Stato per il numero di libri visibili
+  const [visibleBooks, setVisibleBooks] = useState(9); 
 
-  // Filtra i libri in base al titolo usando il valore di searchTerm
+  
   const filteredBooks = books.filter((book) =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase())
   );

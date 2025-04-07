@@ -1,4 +1,4 @@
-// filepath: c:\Users\francesca\OneDrive - Alma Mater Studiorum Università di Bologna\Progetto Epicode\epibook\src\Componenti\BookDetails.jsx
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import books from '../assets/Books/horror.json';
