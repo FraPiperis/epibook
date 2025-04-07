@@ -1,11 +1,9 @@
 
-
 .book-details-container {
   align-items: center;
   justify-content: center;
   text-align: center;
   margin-top: 50px; 
-  margin: 0 auto;
   max-width: 100%;
   padding: 20px;
 }
