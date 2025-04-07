@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'; // Importa Link da React Router
 
 const MyNav = ({ searchTerm, setSearchTerm }) => {
   return (
-    <Navbar bg="dark" className='navbar' variant="dark" expand="lg">
-      <Container fluid>
+    <Navbar bg="dark" className='navbar' variant="dark" expand="lg" fixed="top">
+      <Container className='container' fluid>
         {/* Link per tornare alla home */}
         <Navbar.Brand as={Link} to="/">
           MyApp

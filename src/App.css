@@ -1,37 +1,8 @@
-/* App.css o index.css */
+
 #root {
   max-width: 100%;
   margin: 0;
   padding:0;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
 
 .card {
@@ -42,33 +13,28 @@
   color: #888;
 }
 
-/* Assicura che la navbar occupi tutta la larghezza */
+
 .navbar {
-  width: 100%; /* Larghezza massima */
+  width: 100%; 
   margin: 0;
   padding: 0;
-  max-width: 100%; /* Evita restrizioni di larghezza */
-  box-sizing: border-box; /* Include padding e bordi nella larghezza */
+  box-sizing: border-box;
 }
 
-/* App.css */
 .nav-link {
   transition: all 0.3s ease;
 }
 .nav-link:hover {
-  color: #000000; /* Colore giallo per il hover */
+  color: #000000; 
   text-decoration: underline;
 }
 
 body {
   margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-.container {
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0; 
+  overflow-x: hidden; 
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
 /* Stile per il footer */
@@ -76,7 +42,9 @@ footer {
   background-color: #343a40;
   color: #ffffff;
   text-align: center;
-  padding: 1rem 0;
+  padding: 0;
+  margin:0;
+  max-width: 100%;
 }
 footer a {
   color: #ffffff;
@@ -91,7 +59,7 @@ footer a:hover {
   background-color: #000;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 0;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -99,4 +67,11 @@ footer a:hover {
 
 .btn-dark:hover {
   background-color: #333;
+}
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  max-width: 100%;
 }
