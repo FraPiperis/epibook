@@ -6,7 +6,7 @@ const SingleBook = ({ book, setSelectedBook, isSelected }) => {
   const navigate = useNavigate(); // Hook per navigare tra le rotte
 
   const handleBookClick = () => {
-    setSelectedBook(book.asin); // Imposta il libro selezionato
+    setSelectedBook(book.asin);
   };
 
   return (
@@ -16,7 +16,7 @@ const SingleBook = ({ book, setSelectedBook, isSelected }) => {
         border: isSelected ? '2px solid red' : '1px solid #ddd', // Bordo rosso se selezionato
         cursor: 'pointer',
       }}
-      onClick={handleBookClick} // Gestore del click
+      onClick={handleBookClick} 
     >
       <img
         src={book.img}
@@ -29,8 +29,8 @@ const SingleBook = ({ book, setSelectedBook, isSelected }) => {
         <p className="card-text">Price: ${book.price}</p>
         <p className="card-text">Category: {book.category}</p>
         {/* Pulsante per navigare a BookDetails */}
-        <button
-          className="btn btn-primary mt-2"
+        <button 
+          className="btn btn-outline-dark mt-2"
           onClick={() => navigate(`/book/${book.asin}`)}
         >
           Dettagli

@@ -9,7 +9,7 @@ const MyNav = ({ searchTerm, setSearchTerm }) => {
       <Container className='container' fluid>
         {/* Link per tornare alla home */}
         <Navbar.Brand as={Link} to="/">
-          MyApp
+          EPIBOOK
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

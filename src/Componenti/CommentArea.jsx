@@ -40,7 +40,7 @@ const CommentArea = ({ asin }) => {
   }, [asin]);
 
   return (
-    <div className="mt-4">
+    <div className="mt-5">
       <h5>Comments</h5>
       {error && <Alert variant="danger">{error}</Alert>}
       {loading ? (
